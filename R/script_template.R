@@ -25,10 +25,18 @@ input.file <- "data/bird_traits.csv"
 output.file <- "results/traits_metrics.csv"
 
 # -------------------------------------------------------------------------
+# somewhere at the beginning of the script there should be a section 
+# where you define the variables to be used. Below this section, you should 
+# ideally not have to enter any information "by hand".
+
+c1 <- 13
+c2 <- seq(1,10,by=.3)
+
+# -------------------------------------------------------------------------
 # reading external data
 
 # names should be concise but explanatory
-# always follow the same convention (e.g. adv-r.had.co.nz/Style.html)
+# always follow the same convention (e.g. https://style.tidyverse.org/)
 
 # I use points as space separators, just because it is quicker to type than
 # underscores. 
@@ -66,7 +74,9 @@ write.csv2(bird.traits.clean, output.file)
 # tabular data *always* in open formats
 # always comment code
 # indent and spacing
-
+# keep yourself to 80 characters per line, if possible: split comments and 
+# function calls if necessary
+# never save the environment!
 
 
 
