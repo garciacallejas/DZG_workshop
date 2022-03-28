@@ -6,7 +6,7 @@
 #' and the tip of the longest primary feather). Must be in same units as `l`.
 #' @param l wing length. Must be in same units as `k`.
 #'
-#' @return numeric value
+#' @return hand-wing index, numeric value
 #' @export
 #'
 #' @examples

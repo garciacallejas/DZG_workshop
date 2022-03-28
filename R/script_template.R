@@ -1,5 +1,5 @@
 
-# brief summary of what this code does (1-2 lines)
+# brief summary of what this code does
 
 # INPUTS
 # list of external data needed in the script, e.g.
@@ -18,20 +18,20 @@ library(tidyverse)
 source("R/HandWingIndex.R")
 
 # -------------------------------------------------------------------------
-# it is good practice to define in advance the input/output strings
-# note that if you define dinamically the output names of your results, you 
-# can do it here
-
-input.file <- "data/bird_traits.csv"
-output.file <- "results/traits_metrics.csv"
-
-# -------------------------------------------------------------------------
 # somewhere at the beginning of the script there should be a section 
 # where you define the variables to be used. Below this section, you should 
 # ideally not have to enter any information "by hand".
 
 c1 <- 13
 c2 <- seq(1,10,by=.3)
+
+# -------------------------------------------------------------------------
+# it is good practice to define in advance the input/output strings
+# note that if you define dinamically the output names of your results, you 
+# can do it here
+
+input.file <- "data/bird_traits.csv"
+output.file <- paste("results/traits_metrics_",c1,".csv",sep="")
 
 # -------------------------------------------------------------------------
 # reading external data
@@ -57,6 +57,10 @@ bird.traits.clean <- subset(bird.traits, BILL_LENGTH_mm > c1)
 # if you pick some code from the internet (e.g. stack overflow), it is advised
 # to leave the reference in a comment, e.g.
 # code adapted from http://...
+# likewise with references for specific functions
+# hand-wing index function from https://www.nature.com/articles/s41467-020-16313-6
+bird.traits.clean$HWI <- HandWingIndex(k = bird.traits.clean$DIST_OF_S1_TO_WING_TIP_cm,
+                                       l = bird.traits.clean$WING_LENGTH_cm)
 
 # -------------------------------------------------------------------------
 # output section
@@ -69,7 +73,6 @@ write.csv2(bird.traits.clean, output.file)
 
 # Rstudio projects
 # folder organization - working directory
-# function documentation
 # naming scripts sequentially (00_a.R, 01_b.R, etc)
 # tabular data *always* in open formats
 # always comment code
