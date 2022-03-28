@@ -1,6 +1,8 @@
 ---
 title: "Rmd example"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE, message=FALSE,warning=FALSE}
@@ -15,7 +17,7 @@ Rmarkdown documents combine standard text with `R` code.
 ```{r cars, echo = FALSE}
 
 # careful with the working directory!! go to Tools -> Global Options -> Rmarkdown
-bird.traits <- read.csv("data/bird_traits.csv")
+bird.traits <- read.csv("../data/bird_traits.csv")
 ```
 
 You can show the results that normally would be displayed in the console...
@@ -37,7 +39,7 @@ ggplot(bird.traits, aes(x = BILL_LENGTH_mm, y = BILL_WIDTH_mm)) +
 external ones...
 
 ```{r, echo=FALSE}
-knitr::include_graphics("images/code_nobody_read.jpg")
+knitr::include_graphics("../images/code_nobody_read.png")
 ```
 
 Or even inline results, such as dinamically calculating the mean wing length in this dataset, that turns out to be `r round(mean(bird.traits$WING_LENGTH_cm),2)` cm, with a standard deviation of `r round(sd(bird.traits$WING_LENGTH_cm),2)` cm.
