@@ -15,6 +15,7 @@
 # needed in your code
 
 library(tidyverse)
+source("R/HandWingIndex.R")
 
 # -------------------------------------------------------------------------
 # it is good practice to define in advance the input/output strings
@@ -42,7 +43,7 @@ c2 <- seq(1,10,by=.3)
 # underscores. 
 # column names in df?
 # function names?
-bird.traits <- read.csv2()
+bird.traits <- read.csv(input.file)
 
 # -------------------------------------------------------------------------
 # data clean-up
@@ -51,7 +52,7 @@ bird.traits <- read.csv2()
 # in order to spot and correct mistakes
 # store the modified objects with a different name
 
-bird.traits.clean <- subset(bird.traits)
+bird.traits.clean <- subset(bird.traits, BILL_LENGTH_mm > c1)
 
 # if you pick some code from the internet (e.g. stack overflow), it is advised
 # to leave the reference in a comment, e.g.
@@ -61,7 +62,6 @@ bird.traits.clean <- subset(bird.traits)
 # output section
 
 write.csv2(bird.traits.clean, output.file)
-
 
 # -------------------------------------------------------------------------
 
