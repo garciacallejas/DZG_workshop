@@ -1,0 +1,49 @@
+---
+title: "Rmd example"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## R Markdown
+
+Rmarkdown documents combine standard text with `R` code.
+
+```{r cars, echo = FALSE}
+
+# careful with the working directory!! go to Tools -> Global Options -> Rmarkdown
+bird.traits <- read.csv("data/bird_traits.csv")
+```
+
+You can show the results that normally would be displayed in the console...
+
+```{r}
+summary(bird.traits)
+```
+
+Any other output, like figures...
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(bird.traits, aes(x = BILL_LENGTH_mm, y = BILL_WIDTH_mm)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  theme_bw() + 
+  NULL
+```
+
+Or even inline results, such as dinamically calculating the mean wing length in this dataset, that turns out to be `r round(mean(bird.traits$WING_LENGTH_cm),2)` cm, with a standard deviation of `r round(sd(bird.traits$WING_LENGTH_cm),2)` cm.
+
+You may create HTML or PDF documents from a Rmarkdown file, but beware that for creating PDFs, you need to have LaTex installed in your system and linked to the Rmd compiler. In general, it should be enough to follow the recommendations here:
+
+https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html
+
+But every situation is a bit different, and you should be ready to have to dig a bit if this is not straightforward.
+
+
+
+
+
+

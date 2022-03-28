@@ -19,6 +19,8 @@
 ## Linux   ->  https://git-scm.com/download/linux
 ##             or: $ sudo dnf install git-all
 
+# in a terminal, type "git --version" to be sure git is installed
+
 # ----------------------------------------------------------------------------
 
 ### 3. Configure git with Rstudio ############################################
