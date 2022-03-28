@@ -24,7 +24,7 @@ You can show the results that normally would be displayed in the console...
 summary(bird.traits)
 ```
 
-Any other output, like figures...
+Any other output, like dynamical figures...
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(bird.traits, aes(x = BILL_LENGTH_mm, y = BILL_WIDTH_mm)) + 
@@ -32,6 +32,12 @@ ggplot(bird.traits, aes(x = BILL_LENGTH_mm, y = BILL_WIDTH_mm)) +
   geom_smooth(method = "lm") + 
   theme_bw() + 
   NULL
+```
+
+external ones...
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/code_nobody_read.jpg")
 ```
 
 Or even inline results, such as dinamically calculating the mean wing length in this dataset, that turns out to be `r round(mean(bird.traits$WING_LENGTH_cm),2)` cm, with a standard deviation of `r round(sd(bird.traits$WING_LENGTH_cm),2)` cm.
