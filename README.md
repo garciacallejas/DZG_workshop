@@ -2,6 +2,3 @@
 
 This repository holds the scripts and resources discussed in the workshop.
 
-- list
-
-
